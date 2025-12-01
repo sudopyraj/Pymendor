@@ -16,7 +16,7 @@ A Python tool to help you detect and fix errors in your code: syntax errors, run
 
 <h2>Installation</h2>
 <pre>
-git clone &lt;your-repo-url&gt;
+git clone https://github.com/sudopyraj/Pymendor.git
 cd pymendor
 python3 -m venv myenv
 source myenv/bin/activate  # Linux/macOS
