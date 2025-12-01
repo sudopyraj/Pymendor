@@ -1,0 +1,17 @@
+# Environment files
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+myvenv/
+venv/
+env/
+
+# App data
+history/
+lessons.json
