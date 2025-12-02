@@ -42,6 +42,7 @@ def main():
                 print("\nYour most common mistakes:\n")
                 for mistake, count in top:
                     print(f"- {mistake} ({count} times)")
+            input("\nPress Enter to return to menu...")
             continue
         
         if choice == "4":
@@ -51,6 +52,9 @@ def main():
                 print("\nLessons cleared.")
             else:
                 print("\nCancelled.")
+            input("\nPress Enter to return to menu...")
+            
+            continue
             
         if choice == "1":
             print("\nHow to enter the file path correctly:\n")
@@ -62,25 +66,34 @@ def main():
             print("3. If the file is anywhere else on your system (absolute path):")
             print("   Example: /home/kali/Desktop/hello.py")
             print("   Example: /home/kali/projects/myfolder/test.py\n")
-            print("4. Do NOT use quotes around the file name:")
-            print("   Wrong: 'test.py'")
-            print("   Wrong: \"test.py\"")
-            print("   Right: test.py\n")
-            print("5. Make sure the path is correct and spelled properly.\n")
-            path = input("\nEnter file path : ")
-            try:
-                with open(path, "r", encoding="utf-8") as f:
-                    user_code = f.read()
+            print("4. Make sure the path is correct and spelled properly.\n")
+            while True:
+                
+                
+                path = input("\nEnter file path : ").strip()
+                    
+                if  (path.startswith('"') and path.endswith('"')) or (path.startswith("'") and path.endswith("'")):
+                    path = path[1:-1]
+                
+                try:
+                    with open(path, "r", encoding="utf-8") as f:
+                        user_code = f.read()
+                        break
 
-            except Exception as e:
-                print("Congrats, something went wrong:", e)
+                except Exception as e:
+                    print("Congrats, something went wrong:", e)
+                    continue
             agent = DebugAgent(api_key, tracker)
             result =  agent.debug(user_code)
     
             print("\n--- RESULT ---")
             print(result)
             input("\nPress Enter to return to menu...")
-        break
+            
+        
+        
 
     
 main()
+
+        
