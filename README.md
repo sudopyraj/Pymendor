@@ -29,7 +29,7 @@ pip install -r requirements.txt
   <li>Run the debugger:
     <pre>python main.py</pre>
   </li>
-  <li>Paste your Python code into the console when prompted.</li>
+  <li>Paste  file location.</li>
   <li>The debugger will detect syntax, runtime, and logical errors in your code.</li>
 </ol>
 
