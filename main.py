@@ -51,9 +51,29 @@ def main():
                 print("\nLessons cleared.")
             else:
                 print("\nCancelled.")
-            continue
+            
         if choice == "1":
-            user_code =  input("Paste your python code here and Paste Code in one line\nyou can use vs code terminal: \n\n")
+            print("\nHow to enter the file path correctly:\n")
+            print("1. If the file is in the same folder as this program:")
+            print("   Example: hello.py\n")
+            print("2. If the file is inside another folder (relative path):")
+            print("   Example: utils/hello.py")
+            print("   Example: pymendor/test/example.py\n")
+            print("3. If the file is anywhere else on your system (absolute path):")
+            print("   Example: /home/kali/Desktop/hello.py")
+            print("   Example: /home/kali/projects/myfolder/test.py\n")
+            print("4. Do NOT use quotes around the file name:")
+            print("   Wrong: 'test.py'")
+            print("   Wrong: \"test.py\"")
+            print("   Right: test.py\n")
+            print("5. Make sure the path is correct and spelled properly.\n")
+            path = input("\nEnter file path : ")
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    user_code = f.read()
+
+            except Exception as e:
+                print("Congrats, something went wrong:", e)
             agent = DebugAgent(api_key, tracker)
             result =  agent.debug(user_code)
     
