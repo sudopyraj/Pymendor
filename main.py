@@ -16,7 +16,7 @@ def main():
     
     while True:
         print("\n Options:")
-        print("1. Debug Python code")
+        print("1. Debug code")
         print("2. Show your top mistakes")
         print("3. Exit")
         print("4. Clear all lessons")
